@@ -10,6 +10,7 @@
 #include "ble51.h"
 #include "led.h"
 #include "quantum.h"
+#include "led_fn.h"
 
 #define RGBLIGHT_FADING_ONOFF_ENABLE
 #define RGBLIGHT_ALL_DISPLAY_CONNECTION_ENABLE

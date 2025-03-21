@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "debug.h"
 #include "timer.h"
 #include "wait.h"
+#include "serial.h"
 #ifndef NOT_BLE
 #ifndef BLE51_CONSUMER_ON_DELAY
 #define BLE51_CONSUMER_ON_DELAY 255 //633 works for normal kbd with 8M avr
@@ -305,7 +306,7 @@ static void send_keyboard(report_keyboard_t *report)
         if (report->mods == 0 && report->keys[0] == 0) {
             const char *result = ble51_gets();
             dprintf("rpt_Clear %X: %s\n", timer_read(), result);
-            //result is 'O'K。
+            //result is 'O'K\A1\A3
             if (result[0] == 'O') {
                 g_u8_kbd_report_clear_failed_count = 0;
             } else {
@@ -419,7 +420,7 @@ void ble51_consumer_task(void)
         } else {
             static uint16_t sending_consumer_timer = 0;  //controll repeat speed to be similar to USB 
             //if (++sending_consumer_step >= (0xF3 - consumer_ble51_data)) {
-            // 使用 ble51_puts() 替代 ble51_cmd()后，时间更快。所以发送间隔需要增大。//0xe9 volup
+            // 使\D3\C3 ble51_puts() \CC\E6\B4\FA ble51_cmd()\BA\F3\A3\AC时\BC\E4\B8\FC\BF臁CB\F9\D2苑\A2\CB图\E4\B8\F4\D0\E8要\D4\F6\B4\F3\A1\A3//0xe9 volup
             if (timer_elapsed(sending_consumer_timer) > 40) {
                 sending_consumer_timer = timer_read();
                 send_consumer(consumer_ble51_data);

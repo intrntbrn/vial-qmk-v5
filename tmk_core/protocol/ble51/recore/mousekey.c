@@ -79,7 +79,7 @@ void mousekey_task(void)
     }
     //control wheel speed
     //int8_t mouse_v, mouse_h;
-    uint16_t *mouse_wheel = &mouse_report.v;
+    uint16_t *mouse_wheel = (uint16_t*) &mouse_report.v;
     uint16_t save = *mouse_wheel;
     //mouse_v = mouse_report.v;
     //mouse_h = mouse_report.h;

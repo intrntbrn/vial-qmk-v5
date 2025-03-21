@@ -1,0 +1,43 @@
+----------- #1
+
+
+
+Compiling: keyboards/ydkb/pearly_v2/rgblight.c                                                     keyboards/ydkb/pearly_v2/rgblight.c: In function 'hook_keyboard_loop':
+keyboards/ydkb/pearly_v2/rgblight.c:417:9: error: implicit declaration of function 'indicator_task' [-Wimplicit-function-declaration]
+  417 |         indicator_task();
+      |         ^~~~~~~~~~~~~~
+ [ERRORS]
+ |
+ |
+ |
+make[1]: *** [builddefs/common_rules.mk:362: .build/obj_ydkb_pearly_v2_vial/rgblight.o] Error 1
+
+---------- #2
+
+Compiling: tmk_core/protocol/ble51/recore/mousekey.c                                               tmk_core/protocol/ble51/recore/mousekey.c: In function 'mousekey_task':
+tmk_core/protocol/ble51/recore/mousekey.c:82:29: error: initialization of 'uint16_t *' {aka 'unsigned int *'} from incompatible pointer type 'int8_t *' {aka 'signed char *'} [-Wincompatible-pointer-types]
+   82 |     uint16_t *mouse_wheel = &mouse_report.v;
+      |                             ^
+ [ERRORS]
+ |
+ |
+ |
+make[1]: *** [builddefs/common_rules.mk:362: .build/obj_ydkb_pearly_v2_vial/protocol/ble51/recore/mousekey.o] Error 1
+
+
+---------- #3
+
+Compiling: tmk_core/protocol/ble51/ble51.c                                                         tmk_core/protocol/ble51/ble51.c: In function 'ble51_getc':
+tmk_core/protocol/ble51/ble51.c:194:12: error: implicit declaration of function 'serial_recv2' [-Wimplicit-function-declaration]
+  194 |     return serial_recv2();
+      |            ^~~~~~~~~~~~
+tmk_core/protocol/ble51/ble51.c: In function 'ble51_putc':
+tmk_core/protocol/ble51/ble51.c:220:5: error: implicit declaration of function 'serial_send' [-Wimplicit-function-declaration]
+  220 |     serial_send(c);
+      |     ^~~~~~~~~~~
+ [ERRORS]
+ |
+ |
+ |
+make[1]: *** [builddefs/common_rules.mk:362: .build/obj_ydkb_pearly_v2_vial/protocol/ble51/ble51.o] Error 1
+
